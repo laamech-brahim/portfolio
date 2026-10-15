@@ -1,0 +1,88 @@
+% !TEX program = xelatex
+\documentclass[11pt,a4paper,openany]{report}
+
+\input{preamble}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+% ============================================================
+% PAGE DE GARDE
+% ============================================================
+\input{titlepage}
+\clearpage
+
+% ============================================================
+% PAGES LIMINAIRES
+% ============================================================
+\hypersetup{pageanchor=true}
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{frontmatter/dedicaces}
+\clearpage
+\input{frontmatter/remerciements}
+\clearpage
+\input{frontmatter/resume}
+\clearpage
+
+\listoffigures
+\thispagestyle{plain}
+\clearpage
+
+\listoftables
+\thispagestyle{plain}
+\clearpage
+
+\input{frontmatter/abreviations}
+
+
+\clearpage
+\begingroup
+  \let\cleardoublepage\clearpage
+  % Afficher uniquement les chapitres et les sections principales
+  % afin de conserver une table des matières courte et lisible.
+  \setcounter{tocdepth}{1}
+  \tableofcontents
+  \thispagestyle{plain}
+\endgroup
+\clearpage
+
+% ============================================================
+% CORPS DU RAPPORT
+% ============================================================
+\clearpage
+% La pagination arabe continue sans remise à zéro après les pages liminaires.
+
+\input{chapters/introduction}
+
+\input{chapters/chapitre1}
+\input{chapters/chapitre2}
+\input{chapters/chapitre3}
+\input{chapters/chapitre4}
+\input{chapters/chapitre5}
+
+\input{chapters/conclusion}
+
+% ============================================================
+% BIBLIOGRAPHIE
+% ============================================================
+\clearpage
+\addcontentsline{toc}{chapter}{Bibliographie et webographie}
+\begingroup\sloppy
+\printbibliography[title={Bibliographie et webographie}]
+\endgroup
+
+% ============================================================
+% ANNEXES
+% ============================================================
+\renewcommand{\appendixname}{Annexe}
+\renewcommand{\appendixpagename}{Annexes}
+\renewcommand{\appendixtocname}{Annexes}
+\renewcommand{\thechapter}{\Alph{chapter}}
+\begin{appendices}
+    \input{annexes/annexe_configs}
+    \input{annexes/annexe_regles_suricata}
+\end{appendices}
+
+\end{document}

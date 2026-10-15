@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://laamech-brahim.github.io/CVV/sitemap.xml
